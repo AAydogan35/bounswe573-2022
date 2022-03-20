@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template of templates</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+
+{% block content %}
+replace me 1
+{% endblock content %}
+
+{% block another_content %}
+replace me 2
+{% endblock another_content %}
+</body>
+</html>

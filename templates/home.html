@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>This is a template</title>
+</head>
+<body>
+<h1>Hello template</h1>
+{{ request.user }}
+<h1></h1>
+{{ request.user.is_authenticated }}
+<h2>What does h2 does</h2>
+<h3>What about h3</h3>
+<h4>Ok it goes like this</h4>
+</body>
+{% endblock content %}
