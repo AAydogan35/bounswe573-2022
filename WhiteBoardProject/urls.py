@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
     path('accounts/', include('allauth.urls')),
+    path('cospace/', include('cospace.urls')),
 
 ]
