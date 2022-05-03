@@ -40,6 +40,8 @@ AUTHENTICATION_BACKENDS = [
 INSTALLED_APPS = [
     'cospace',
     'landing',
+    'crispy_forms',
+    'tinymce',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,7 +53,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'crispy_forms',
+
 ]
 
 SITE_ID = 1
@@ -93,8 +95,15 @@ WSGI_APPLICATION = 'WhiteBoardProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'whiteboardb',
+        'USER': 'root',
+        'PASSWORD': 'trocknroll',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -135,12 +144,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+CRISPY_TEMPLATE_PACK ='bootstrap4'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'post-list'
 ACCOUNT_EMAIL_REQUIRED = True
 
 # For testing signups

@@ -22,5 +22,7 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('accounts/', include('allauth.urls')),
     path('cospace/', include('cospace.urls')),
+    path('tinymce/', include('tinymce.urls')),
+
 
 ]
