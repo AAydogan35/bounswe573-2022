@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Post, Comment
+from django.views.generic.edit import UpdateView, DeleteView
+from .models import Post
 from .forms import PostForm, CommentForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 class PostListView(View):
@@ -43,3 +45,12 @@ class PostDetailView(View):
         }
 
         return render(request, 'cospace/post_detail.html', context)
+
+class PostEditView(UpdateView):
+    model = Post
+    fields = ['body']
+    template_name = 'cospace/post_edit.html'
+
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('post-detail', kwargs={'pk': pk})
